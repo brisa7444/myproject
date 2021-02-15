@@ -1,0 +1,41 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'search/login_style.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Login</title>
+</head>
+<body>
+    <!--颜色选择区域-->
+    <div class="color-change">
+        <span>style</span>
+        <a href="#" id="yellow" title="yellow"></a>
+        <a href="#" id="red" title="red"></a>
+        <a href="#" id="blue" title="blue"></a>
+        <a href="#" id="black" title="black"></a>
+    </div>
+
+    <!--欢迎区域-->
+    <div class="welcome">Welcome!</div>
+
+    <!--登陆区域-->
+    <form action={% url 'firewall:WAFLogin' %} method="post">
+    {% csrf_token %}
+        <div class="login">
+            <label><div for="username">Username:</div><br>
+            <input type="text" id="username" name="username" required/><br></label>
+            <label><div for="password">Password:</div><br>
+            <input type="password" id="password" name="password" required/><br></label>
+            <input type="submit" value="Login">
+        </div>
+    </form>
+
+    <!-- 本站所有网⻚的统一⻚脚 -->
+    <footer>
+        <p>© 2050 Brisa保留所有权利</p>
+    </footer>
+</body>
+</html>
